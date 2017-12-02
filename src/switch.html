@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>alert-tester</title>  
+  <link rel="stylesheet" href="material/material-components-web.min.css">
+  <script src="material/material-components-web.min.js"></script>
+  <link rel="stylesheet" href="switch.css">
+  <script type="text/JavaScript">
+    function setHealthState(){ 
+      let healthy = document.getElementById("switch").checked; 
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/", true);
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=UTF-8"); 
+      xhr.send("healthy=" + healthy);
+    }
+
+    function loadHealthState(){       
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "/state", true);
+      xhr.onload = () => {
+        let checked = (xhr.responseText == "1");
+        document.getElementById("switch").checked = checked;  
+      }
+      xhr.send();
+    }
+  </script>
+</head>
+  <body onload="loadHealthState()">
+    <div id="container">
+      <span class="status" title="failure">💩</span>
+      <div class="mdc-switch">
+        <input type="checkbox" id="switch" class="mdc-switch__native-control" onclick="setHealthState()" />
+        <div class="mdc-switch__background">
+          <div class="mdc-switch__knob"></div>
+        </div>
+      </div>
+      <span class="status" title="allright">👌</span>
+    </div>
+  </body>
+</html>

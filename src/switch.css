@@ -1,0 +1,79 @@
+html,
+body {
+  height: 100%;
+}
+
+#container {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.status {
+  font-size: 12vw;
+}
+
+.mdc-switch {
+  --mdc-theme-secondary: rgb(33, 150, 243);
+  margin: 4vw;
+}
+
+.mdc-switch__native-control {
+  width: 48vw;
+  height: 48vw;
+  top: -14vw;
+  left: -14vw;
+}
+
+.mdc-switch__native-control:checked {
+  transform: translateX(14vw);
+}
+
+.mdc-switch__background {
+  height: 14vw;
+  width: 34vw;
+}
+
+.mdc-switch__background:before {
+  border-radius: 7vw;
+}
+
+.mdc-switch__native-control:focus
+  ~ .mdc-switch__background
+  .mdc-switch__knob:before {
+  opacity: 0;
+}
+
+.mdc-switch__native-control:checked
+  ~ .mdc-switch__background
+  .mdc-switch__knob {
+  transform: translateX(14vw);
+}
+
+.mdc-switch__background .mdc-switch__knob {
+  height: 20vw;
+  width: 20vw;
+  border-radius: 10vw;
+  top: -3vw;
+  box-shadow: 0 3vw 1vw -2vw rgba(0, 0, 0, 0.2), 0 2vw 2vw 0 rgba(0, 0, 0, 0.14),
+    0 1vw 5vw 0 rgba(0, 0, 0, 0.12);
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mdc-switch__native-control:checked
+  ~ .mdc-switch__background
+  .mdc-switch__knob {
+  transform: translateX(14vw);
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
