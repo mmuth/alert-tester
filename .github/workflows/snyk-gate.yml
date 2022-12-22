@@ -1,0 +1,16 @@
+name: Snyk Security Gate
+on:
+  pull_request:
+    branches:
+      [master]
+jobs:
+  oss-security:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Check for High Severity OSS Vulnerabilities and License Compliance
+      uses: snyk/actions/node@master
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
+        args: --severity-threshold=high --fail-on=upgradable
