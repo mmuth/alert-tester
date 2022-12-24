@@ -11,7 +11,7 @@
   "author": "Matthias Muth <info@matthias-muth.de>",
   "license": "Apache-2.0",
   "dependencies": {
-    "body-parser": "^1.18.2",
+    "body-parser": "^1.20.1",
     "cron": "^1.3.0",
     "express": "^4.16.2",
     "material-components-web": "^0.24.0",
